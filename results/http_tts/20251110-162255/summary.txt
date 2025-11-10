@@ -1,0 +1,17 @@
+HTTP TTS baseline benchmark
+Iterations: 10
+
+[01] TTFB 205.5 ms  TTLB 1531.5 ms  bytes 96000
+[02] TTFB 128.0 ms  TTLB 1698.4 ms  bytes 113920
+[03] TTFB 109.7 ms  TTLB 2082.0 ms  bytes 139520
+[04] TTFB 122.7 ms  TTLB 1973.1 ms  bytes 133120
+[05] TTFB 111.3 ms  TTLB 1715.3 ms  bytes 116480
+[06] TTFB 121.5 ms  TTLB 1736.8 ms  bytes 116480
+[07] TTFB 108.9 ms  TTLB 1781.3 ms  bytes 119040
+[08] TTFB 124.8 ms  TTLB 2150.2 ms  bytes 144640
+[09] TTFB 121.4 ms  TTLB 1696.8 ms  bytes 113920
+[10] TTFB 116.0 ms  TTLB 968.1 ms  bytes 62720
+
+Summary (HTTP baseline)
+TTFB  avg 127.0 ms  median 121.4 ms  min 108.9  max 205.5
+TTLB  avg 1733.4 ms  median 1726.0 ms  min 968.1  max 2150.2
