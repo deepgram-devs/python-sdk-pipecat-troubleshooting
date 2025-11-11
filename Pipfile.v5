@@ -1,0 +1,15 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+deepgram-sdk = "==5.3.0"
+python-dotenv = "*"
+loguru = "*"
+aiohttp = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"

@@ -1,0 +1,17 @@
+Deepgram SDK v5 REST benchmark
+Iterations: 10
+
+[01] TTFB 396.6 ms  TTLB 1688.2 ms  bytes 102400
+[02] TTFB 228.9 ms  TTLB 1590.8 ms  bytes 107520
+[03] TTFB 228.0 ms  TTLB 1949.7 ms  bytes 133120
+[04] TTFB 227.4 ms  TTLB 1973.2 ms  bytes 135680
+[05] TTFB 225.4 ms  TTLB 1572.4 ms  bytes 106240
+[06] TTFB 223.4 ms  TTLB 1554.2 ms  bytes 106240
+[07] TTFB 220.2 ms  TTLB 1952.9 ms  bytes 134400
+[08] TTFB 215.2 ms  TTLB 2086.4 ms  bytes 144640
+[09] TTFB 219.9 ms  TTLB 1781.9 ms  bytes 122880
+[10] TTFB 214.6 ms  TTLB 1947.0 ms  bytes 133120
+
+Summary (Deepgram SDK v5 REST)
+TTFB  avg 240.0 ms  median 224.4 ms  min 214.6  max 396.6
+TTLB  avg 1809.7 ms  median 1864.5 ms  min 1554.2  max 2086.4

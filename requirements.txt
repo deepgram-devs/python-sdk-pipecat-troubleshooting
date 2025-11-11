@@ -1,7 +1,7 @@
 # Python SDK Pipecat troubleshooting dependencies
 # These versions align with PipeCat's current setup (deepgram-sdk v4.7.x) and supporting libraries.
 deepgram-sdk==4.7.0
-pipecat-ai[webrtc,daily,silero,deepgram,openai,cartesia,local-smart-turn-v3,runner] @ git+https://github.com/pipecat-ai/pipecat.git@main
+# pipecat-ai[webrtc,daily,silero,deepgram,openai,cartesia,local-smart-turn-v3,runner] @ git+https://github.com/pipecat-ai/pipecat.git@main
 python-dotenv
 loguru
 aiohttp
