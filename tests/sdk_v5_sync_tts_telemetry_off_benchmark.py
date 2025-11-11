@@ -1,12 +1,11 @@
 """
-Deepgram SDK v4.7 TTS Benchmark with Telemetry enabled
+Deepgram SDK v5 Synchronous TTS Benchmark with Telemetry Disabled
 
-This script benchmarks Deepgram TTS using the v4.7 SDK's stream_raw() method
-(as used by Pipecat), measuring TTFB, TTLB, and detailed timing breakdown.
+This script benchmarks Deepgram TTS using the v5 SDK's synchronous mode with telemetry disabled
+to measure the performance impact of telemetry instrumentation.
 """
 
 import argparse
-import asyncio
 import datetime
 import json
 import os
@@ -16,7 +15,7 @@ import time
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from deepgram import DeepgramClient, SpeakOptions
+from deepgram import DeepgramClient
 
 
 def _summaries(metrics: List[Dict[str, float]], key: str) -> Dict[str, float]:
@@ -32,7 +31,7 @@ def _summaries(metrics: List[Dict[str, float]], key: str) -> Dict[str, float]:
 
 def _timing_breakdown_summaries(metrics: List[Dict[str, Any]]) -> Dict[str, Dict[str, float]]:
     """Calculate summary statistics for timing breakdown fields."""
-    timing_keys = ["sdk_preprocessing_ms", "network_ttfb_ms", "chunk_processing_ms"]
+    timing_keys = ["iterator_creation_ms", "first_chunk_ms", "remaining_chunks_ms"]
     summaries = {}
 
     for key in timing_keys:
@@ -48,48 +47,64 @@ def _timing_breakdown_summaries(metrics: List[Dict[str, Any]]) -> Dict[str, Dict
     return summaries
 
 
-async def _run_once(
+def _run_once(
     client: DeepgramClient,
     text: str,
-    options: SpeakOptions,
+    model: str,
+    encoding: str,
+    sample_rate: int,
 ) -> Dict[str, Any]:
-    """Execute one TTS request and measure detailed timing."""
+    """Execute one TTS request and measure detailed timing.
+
+    V5 SDK uses lazy evaluation - the iterator is created instantly,
+    but the HTTP request doesn't execute until first iteration.
+    """
     start = time.perf_counter()
     timing_breakdown = {}
 
-    response: Optional[Any] = None
     ttfb: Optional[float] = None
     total_bytes = 0
     first_chunk_time: Optional[float] = None
 
     try:
-        # Phase 1: SDK preprocessing (includes request preparation and sending, headers received)
-        response = await client.speak.asyncrest.v("1").stream_raw({"text": text}, options)
+        # Phase 1: Iterator creation (lazy - no HTTP request yet)
+        response = client.speak.v1.audio.generate(
+            text=text,
+            model=model,
+            encoding=encoding,
+            sample_rate=sample_rate,
+            container="none",
+        )
 
-        # Response object created, measure SDK preprocessing time
-        sdk_preprocessing_end = time.perf_counter()
-        timing_breakdown["sdk_preprocessing_ms"] = (sdk_preprocessing_end - start) * 1000.0
+        # Iterator created (no network activity yet)
+        iterator_created = time.perf_counter()
+        timing_breakdown["iterator_creation_ms"] = (iterator_created - start) * 1000.0
 
-        chunk_processing_start: Optional[float] = None
+        # Phase 2: First iteration triggers actual HTTP request + receives first chunk
+        # This includes: request preparation, network send, server processing, first chunk receive
+        first_iteration_start = time.perf_counter()
 
-        # Phase 2: Network TTFB (time from response object to first data chunk)
-        async for chunk in response.aiter_bytes():
+        for chunk in response:
             if not chunk:
                 continue
 
             if ttfb is None:
+                # First chunk received - this is when TTFB is measured
                 ttfb = (time.perf_counter() - start) * 1000.0
                 first_chunk_time = time.perf_counter()
-                timing_breakdown["network_ttfb_ms"] = (first_chunk_time - sdk_preprocessing_end) * 1000.0
-                chunk_processing_start = first_chunk_time
+                # Time from starting iteration to receiving first chunk (SDK request exec + network)
+                timing_breakdown["first_chunk_ms"] = (first_chunk_time - iterator_created) * 1000.0
+                total_bytes += len(chunk)
+                break  # Exit after first chunk to separate from remaining chunks
 
+        # Phase 3: Process remaining chunks
+        remaining_start = time.perf_counter()
+        for chunk in response:
+            if not chunk:
+                continue
             total_bytes += len(chunk)
 
-        # Phase 3: Chunk processing overhead
-        if chunk_processing_start is not None:
-            timing_breakdown["chunk_processing_ms"] = (time.perf_counter() - chunk_processing_start) * 1000.0
-        else:
-            timing_breakdown["chunk_processing_ms"] = 0.0
+        timing_breakdown["remaining_chunks_ms"] = (time.perf_counter() - remaining_start) * 1000.0
 
         ttlb = (time.perf_counter() - start) * 1000.0
 
@@ -100,9 +115,8 @@ async def _run_once(
             "timing_breakdown": timing_breakdown,
         }
 
-    finally:
-        if response is not None and hasattr(response, "aclose"):
-            await response.aclose()
+    except Exception as exc:
+        raise RuntimeError(f"SDK request failed: {exc}") from exc
 
 
 def _write_results(
@@ -111,19 +125,18 @@ def _write_results(
     timing_summary: Dict[str, Dict[str, float]],
     client_init_ms: float,
     args: argparse.Namespace,
-    telemetry_enabled: bool,
 ) -> None:
     """Write metrics and summary to timestamped output directory."""
     timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-    base_dir = Path(args.output_dir) / "sdk_v4_tts" / timestamp
+    base_dir = Path(args.output_dir) / "sdk_v5_sync_tts_telemetry_off" / timestamp
     base_dir.mkdir(parents=True, exist_ok=True)
 
     payload = {
-        "benchmark": "sdk_v4_tts",
+        "benchmark": "sdk_v5_sync_tts_telemetry_off",
         "generated_at": timestamp,
         "iterations": len(metrics),
         "client_init_ms": client_init_ms,
-        "telemetry_enabled": telemetry_enabled,
+        "telemetry_enabled": False,
         "parameters": {
             "text": args.text,
             "model": args.model,
@@ -141,8 +154,8 @@ def _write_results(
 
     # Write summary.txt
     with (base_dir / "summary.txt").open("w", encoding="utf-8") as handle:
-        handle.write("Deepgram SDK v4.7 benchmark\n")
-        handle.write(f"Telemetry: {'enabled' if telemetry_enabled else 'disabled'}\n")
+        handle.write("Deepgram SDK v5 sync benchmark (telemetry disabled)\n")
+        handle.write(f"Telemetry: disabled\n")
         handle.write(f"Iterations: {len(metrics)}\n")
         handle.write(f"Client initialization (one-time): {client_init_ms:.1f} ms\n\n")
 
@@ -153,7 +166,7 @@ def _write_results(
                 f"TTLB {metric['ttlb_ms']:.1f} ms  bytes {int(metric['bytes'])}\n"
             )
 
-        handle.write(f"\nSummary (Deepgram SDK v4.7)\n")
+        handle.write(f"\nSummary (Deepgram SDK v5 sync, telemetry off)\n")
         handle.write(
             f"TTFB  avg {summary['ttfb']['avg']:.1f} ms  "
             f"median {summary['ttfb']['median']:.1f} ms  "
@@ -172,31 +185,31 @@ def _write_results(
             handle.write(f"  {label}: {stats['avg']:.1f} ms\n")
 
 
-async def _run(args: argparse.Namespace) -> None:
+def _run(args: argparse.Namespace) -> None:
     """Execute benchmark suite."""
     api_key = os.getenv("DEEPGRAM_API_KEY")
     if not api_key:
         print("DEEPGRAM_API_KEY is required", file=sys.stderr)
         sys.exit(1)
 
-    # Measure client initialization (one-time cost)
+    # Measure client initialization with telemetry disabled (one-time cost)
+    # Note: telemetry_opt_out=True is actually the default in v5, but being explicit
     client_init_start = time.perf_counter()
-    client = DeepgramClient(api_key=api_key)
+    client = DeepgramClient(api_key=api_key, telemetry_opt_out=True)
     client_init_ms = (time.perf_counter() - client_init_start) * 1000.0
     print(f"Client initialization: {client_init_ms:.1f} ms\n")
-
-    options = SpeakOptions(
-        model=args.model,
-        encoding=args.encoding,
-        sample_rate=args.sample_rate,
-        container="none",
-    )
 
     metrics: List[Dict[str, Any]] = []
 
     for idx in range(1, args.iterations + 1):
         try:
-            result = await _run_once(client, args.text, options)
+            result = _run_once(
+                client,
+                args.text,
+                args.model,
+                args.encoding,
+                args.sample_rate,
+            )
             metrics.append(result)
             print(
                 f"[{idx:02d}] TTFB {result['ttfb_ms']:.1f} ms  "
@@ -214,7 +227,7 @@ async def _run(args: argparse.Namespace) -> None:
     ttlb_stats = _summaries(metrics, "ttlb_ms")
     timing_breakdown_stats = _timing_breakdown_summaries(metrics)
 
-    print("\nSummary (Deepgram SDK v4.7)")
+    print("\nSummary (Deepgram SDK v5 sync, telemetry off)")
     print(
         f"TTFB  avg {ttfb_stats['avg']:.1f} ms  "
         f"median {ttfb_stats['median']:.1f} ms  "
@@ -232,13 +245,13 @@ async def _run(args: argparse.Namespace) -> None:
         print(f"  {label}: {stats['avg']:.1f} ms")
 
     summary = {"ttfb": ttfb_stats, "ttlb": ttlb_stats}
-    _write_results(metrics, summary, timing_breakdown_stats, client_init_ms, args, telemetry_enabled=True)
+    _write_results(metrics, summary, timing_breakdown_stats, client_init_ms, args)
 
 
 def _parse_args() -> argparse.Namespace:
     """Parse command-line arguments."""
     parser = argparse.ArgumentParser(
-        description="Benchmark Deepgram TTS via SDK v4.7 with timing instrumentation."
+        description="Benchmark Deepgram TTS via SDK v5 synchronous mode with telemetry disabled."
     )
     parser.add_argument("--text", default="Testing Deepgram SDK streaming TTS.")
     parser.add_argument("--model", default="aura-2-andromeda-en")
@@ -255,9 +268,8 @@ def _parse_args() -> argparse.Namespace:
 
 def main() -> None:
     """Main entry point."""
-    asyncio.run(_run(_parse_args()))
+    _run(_parse_args())
 
 
 if __name__ == "__main__":
     main()
-
