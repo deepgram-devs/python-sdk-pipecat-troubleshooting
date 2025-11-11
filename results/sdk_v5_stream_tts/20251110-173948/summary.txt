@@ -1,0 +1,17 @@
+Deepgram SDK v5 streaming benchmark
+Iterations: 10
+
+[01] TTFB 360.8 ms  TTLB 2077.0 ms  bytes 130560
+[02] TTFB 240.3 ms  TTLB 1929.8 ms  bytes 130560
+[03] TTFB 231.9 ms  TTLB 1864.9 ms  bytes 126720
+[04] TTFB 232.2 ms  TTLB 1982.7 ms  bytes 134400
+[05] TTFB 233.6 ms  TTLB 1970.3 ms  bytes 133120
+[06] TTFB 228.6 ms  TTLB 1590.6 ms  bytes 108800
+[07] TTFB 229.7 ms  TTLB 2146.4 ms  bytes 147200
+[08] TTFB 216.6 ms  TTLB 1766.4 ms  bytes 121600
+[09] TTFB 219.2 ms  TTLB 1680.1 ms  bytes 111360
+[10] TTFB 261.9 ms  TTLB 1775.9 ms  bytes 119040
+
+Summary (Deepgram SDK v5 streaming)
+TTFB  avg 245.5 ms  median 232.0 ms  min 216.6  max 360.8
+TTLB  avg 1878.4 ms  median 1897.4 ms  min 1590.6  max 2146.4

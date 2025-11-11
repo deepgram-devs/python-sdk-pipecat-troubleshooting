@@ -1,0 +1,3 @@
+The Pipecat “interruptible” demo uses Deepgram STT and OpenAI/transport layers, so we’re seeing 401s and 429s that have nothing to do with TTS latency. To isolate the real issue, I add two focused scripts in tests/ that exercise only the TTS path—the first uses the SDK (speak.asyncrest.v("1").stream_raw), the second mirrors the HTTP request.
+
+Each script runs a configurable number of iterations, captures TTFB/TTLB/byte counts, and prints per-run metrics plus summary statistics.
