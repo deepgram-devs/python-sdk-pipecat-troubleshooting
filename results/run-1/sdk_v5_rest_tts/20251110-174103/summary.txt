@@ -1,4 +1,4 @@
-Deepgram SDK v5 REST benchmark
+Deepgram SDK v5 Sync REST benchmark
 Iterations: 10
 
 [01] TTFB 396.6 ms  TTLB 1688.2 ms  bytes 102400

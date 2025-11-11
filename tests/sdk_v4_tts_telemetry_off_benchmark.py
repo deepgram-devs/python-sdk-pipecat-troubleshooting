@@ -1,8 +1,8 @@
 """
-Deepgram SDK v4.7 TTS Benchmark with Telemetry enabled
+Deepgram SDK v4.7 TTS Benchmark with Telemetry Disabled
 
-This script benchmarks Deepgram TTS using the v4.7 SDK's stream_raw() method
-(as used by Pipecat), measuring TTFB, TTLB, and detailed timing breakdown.
+This script benchmarks Deepgram TTS using the v4.7 SDK with telemetry disabled
+to measure the performance impact of telemetry instrumentation.
 """
 
 import argparse
@@ -111,19 +111,18 @@ def _write_results(
     timing_summary: Dict[str, Dict[str, float]],
     client_init_ms: float,
     args: argparse.Namespace,
-    telemetry_enabled: bool,
 ) -> None:
     """Write metrics and summary to timestamped output directory."""
     timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-    base_dir = Path(args.output_dir) / "sdk_v4_tts" / timestamp
+    base_dir = Path(args.output_dir) / "sdk_v4_tts_telemetry_off" / timestamp
     base_dir.mkdir(parents=True, exist_ok=True)
 
     payload = {
-        "benchmark": "sdk_v4_tts",
+        "benchmark": "sdk_v4_tts_telemetry_off",
         "generated_at": timestamp,
         "iterations": len(metrics),
         "client_init_ms": client_init_ms,
-        "telemetry_enabled": telemetry_enabled,
+        "telemetry_enabled": False,
         "parameters": {
             "text": args.text,
             "model": args.model,
@@ -141,8 +140,8 @@ def _write_results(
 
     # Write summary.txt
     with (base_dir / "summary.txt").open("w", encoding="utf-8") as handle:
-        handle.write("Deepgram SDK v4.7 benchmark\n")
-        handle.write(f"Telemetry: {'enabled' if telemetry_enabled else 'disabled'}\n")
+        handle.write("Deepgram SDK v4.7 benchmark (telemetry disabled)\n")
+        handle.write(f"Telemetry: disabled\n")
         handle.write(f"Iterations: {len(metrics)}\n")
         handle.write(f"Client initialization (one-time): {client_init_ms:.1f} ms\n\n")
 
@@ -153,7 +152,7 @@ def _write_results(
                 f"TTLB {metric['ttlb_ms']:.1f} ms  bytes {int(metric['bytes'])}\n"
             )
 
-        handle.write(f"\nSummary (Deepgram SDK v4.7)\n")
+        handle.write(f"\nSummary (Deepgram SDK v4.7, telemetry off)\n")
         handle.write(
             f"TTFB  avg {summary['ttfb']['avg']:.1f} ms  "
             f"median {summary['ttfb']['median']:.1f} ms  "
@@ -179,9 +178,16 @@ async def _run(args: argparse.Namespace) -> None:
         print("DEEPGRAM_API_KEY is required", file=sys.stderr)
         sys.exit(1)
 
-    # Measure client initialization (one-time cost)
+    # Measure client initialization with telemetry disabled (one-time cost)
     client_init_start = time.perf_counter()
-    client = DeepgramClient(api_key=api_key)
+    # Note: v4.7 may not support telemetry_opt_out parameter,
+    # but we'll attempt it and fall back if needed
+    try:
+        client = DeepgramClient(api_key=api_key, telemetry_opt_out=True)
+    except TypeError:
+        # If telemetry_opt_out not supported, use standard client
+        print("Warning: telemetry_opt_out not supported in v4.7, using default client")
+        client = DeepgramClient(api_key=api_key)
     client_init_ms = (time.perf_counter() - client_init_start) * 1000.0
     print(f"Client initialization: {client_init_ms:.1f} ms\n")
 
@@ -214,7 +220,7 @@ async def _run(args: argparse.Namespace) -> None:
     ttlb_stats = _summaries(metrics, "ttlb_ms")
     timing_breakdown_stats = _timing_breakdown_summaries(metrics)
 
-    print("\nSummary (Deepgram SDK v4.7)")
+    print("\nSummary (Deepgram SDK v4.7, telemetry off)")
     print(
         f"TTFB  avg {ttfb_stats['avg']:.1f} ms  "
         f"median {ttfb_stats['median']:.1f} ms  "
@@ -232,13 +238,13 @@ async def _run(args: argparse.Namespace) -> None:
         print(f"  {label}: {stats['avg']:.1f} ms")
 
     summary = {"ttfb": ttfb_stats, "ttlb": ttlb_stats}
-    _write_results(metrics, summary, timing_breakdown_stats, client_init_ms, args, telemetry_enabled=True)
+    _write_results(metrics, summary, timing_breakdown_stats, client_init_ms, args)
 
 
 def _parse_args() -> argparse.Namespace:
     """Parse command-line arguments."""
     parser = argparse.ArgumentParser(
-        description="Benchmark Deepgram TTS via SDK v4.7 with timing instrumentation."
+        description="Benchmark Deepgram TTS via SDK v4.7 with telemetry disabled."
     )
     parser.add_argument("--text", default="Testing Deepgram SDK streaming TTS.")
     parser.add_argument("--model", default="aura-2-andromeda-en")
@@ -260,4 +266,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

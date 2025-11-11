@@ -1,0 +1,299 @@
+{
+  "benchmark": "sdk_v4_tts_telemetry_off",
+  "generated_at": "20251111-125701",
+  "iterations": 25,
+  "client_init_ms": 0.07100000220816582,
+  "telemetry_enabled": false,
+  "parameters": {
+    "text": "Testing Deepgram SDK streaming TTS.",
+    "model": "aura-2-andromeda-en",
+    "encoding": "linear16",
+    "sample_rate": 16000
+  },
+  "runs": [
+    {
+      "ttfb_ms": 323.3738330018241,
+      "ttlb_ms": 2121.002292005869,
+      "bytes": 129280.0,
+      "timing_breakdown": {
+        "sdk_preprocessing_ms": 323.10541700280737,
+        "network_ttfb_ms": 0.27116599812870845,
+        "chunk_processing_ms": 1797.6225840029656
+      }
+    },
+    {
+      "ttfb_ms": 242.85466699802782,
+      "ttlb_ms": 1432.3731669937843,
+      "bytes": 87040.0,
+      "timing_breakdown": {
+        "sdk_preprocessing_ms": 242.76387499412522,
+        "network_ttfb_ms": 0.09116699948208407,
+        "chunk_processing_ms": 1189.5171670039417
+      }
+    },
+    {
+      "ttfb_ms": 218.04962500027614,
+      "ttlb_ms": 1798.301208000339,
+      "bytes": 115200.0,
+      "timing_breakdown": {
+        "sdk_preprocessing_ms": 217.99874999851454,
+        "network_ttfb_ms": 0.05095799861010164,
+        "chunk_processing_ms": 1580.250792001607
+      }
+    },
+    {
+      "ttfb_ms": 240.5153750005411,
+      "ttlb_ms": 1550.58700000518,
+      "bytes": 94720.0,
+      "timing_breakdown": {
+        "sdk_preprocessing_ms": 240.45070799911628,
+        "network_ttfb_ms": 0.06487499922513962,
+        "chunk_processing_ms": 1310.0709170030314
+      }
+    },
+    {
+      "ttfb_ms": 222.13291699881665,
+      "ttlb_ms": 1656.3814170003752,
+      "bytes": 103680.0,
+      "timing_breakdown": {
+        "sdk_preprocessing_ms": 221.88537499459926,
+        "network_ttfb_ms": 0.2507919998606667,
+        "chunk_processing_ms": 1434.243208001135
+      }
+    },
+    {
+      "ttfb_ms": 237.02816699369578,
+      "ttlb_ms": 1647.7518329993472,
+      "bytes": 102400.0,
+      "timing_breakdown": {
+        "sdk_preprocessing_ms": 236.78595799719915,
+        "network_ttfb_ms": 0.242959002207499,
+        "chunk_processing_ms": 1410.7207909983117
+      }
+    },
+    {
+      "ttfb_ms": 214.3633339946973,
+      "ttlb_ms": 1532.482958995388,
+      "bytes": 96000.0,
+      "timing_breakdown": {
+        "sdk_preprocessing_ms": 214.2944999941392,
+        "network_ttfb_ms": 0.06920900341356173,
+        "chunk_processing_ms": 1318.117249997158
+      }
+    },
+    {
+      "ttfb_ms": 243.91033300344134,
+      "ttlb_ms": 1756.9574580047629,
+      "bytes": 110080.0,
+      "timing_breakdown": {
+        "sdk_preprocessing_ms": 243.80062500131316,
+        "network_ttfb_ms": 0.11000000085914508,
+        "chunk_processing_ms": 1513.0447909978102
+      }
+    },
+    {
+      "ttfb_ms": 226.32808399794158,
+      "ttlb_ms": 1351.0737089964096,
+      "bytes": 83200.0,
+      "timing_breakdown": {
+        "sdk_preprocessing_ms": 226.128249996691,
+        "network_ttfb_ms": 0.20070900063728914,
+        "chunk_processing_ms": 1124.739375001809
+      }
+    },
+    {
+      "ttfb_ms": 236.50875000021188,
+      "ttlb_ms": 1784.5798749985988,
+      "bytes": 113920.0,
+      "timing_breakdown": {
+        "sdk_preprocessing_ms": 236.452332996123,
+        "network_ttfb_ms": 0.05666699871653691,
+        "chunk_processing_ms": 1548.0683330024476
+      }
+    },
+    {
+      "ttfb_ms": 256.78537500061793,
+      "ttlb_ms": 1611.217208999733,
+      "bytes": 99840.0,
+      "timing_breakdown": {
+        "sdk_preprocessing_ms": 256.5564589967835,
+        "network_ttfb_ms": 0.23220800358103588,
+        "chunk_processing_ms": 1354.419458002667
+      }
+    },
+    {
+      "ttfb_ms": 231.08958299417282,
+      "ttlb_ms": 1572.0345419977093,
+      "bytes": 98560.0,
+      "timing_breakdown": {
+        "sdk_preprocessing_ms": 230.85095799615374,
+        "network_ttfb_ms": 0.23983400024008006,
+        "chunk_processing_ms": 1340.9411660031765
+      }
+    },
+    {
+      "ttfb_ms": 217.7487079970888,
+      "ttlb_ms": 1227.1055419987533,
+      "bytes": 74240.0,
+      "timing_breakdown": {
+        "sdk_preprocessing_ms": 217.6926669999375,
+        "network_ttfb_ms": 0.05629099905490875,
+        "chunk_processing_ms": 1009.3558750013472
+      }
+    },
+    {
+      "ttfb_ms": 226.4412500007893,
+      "ttlb_ms": 1867.7707919996465,
+      "bytes": 119040.0,
+      "timing_breakdown": {
+        "sdk_preprocessing_ms": 226.20262500277022,
+        "network_ttfb_ms": 0.2393749964539893,
+        "chunk_processing_ms": 1641.326167002262
+      }
+    },
+    {
+      "ttfb_ms": 235.89295799320098,
+      "ttlb_ms": 1597.1795419973205,
+      "bytes": 101120.0,
+      "timing_breakdown": {
+        "sdk_preprocessing_ms": 235.8154169996851,
+        "network_ttfb_ms": 0.07783299952279776,
+        "chunk_processing_ms": 1361.2855829996988
+      }
+    },
+    {
+      "ttfb_ms": 219.92954199959058,
+      "ttlb_ms": 1545.6674590022885,
+      "bytes": 97280.0,
+      "timing_breakdown": {
+        "sdk_preprocessing_ms": 219.7443339973688,
+        "network_ttfb_ms": 0.18554100097389892,
+        "chunk_processing_ms": 1325.7355419991654
+      }
+    },
+    {
+      "ttfb_ms": 222.22379199956777,
+      "ttlb_ms": 1373.1903750012862,
+      "bytes": 84480.0,
+      "timing_breakdown": {
+        "sdk_preprocessing_ms": 221.9966669945279,
+        "network_ttfb_ms": 0.22775000252295285,
+        "chunk_processing_ms": 1150.965458000428
+      }
+    },
+    {
+      "ttfb_ms": 248.97800000326242,
+      "ttlb_ms": 1422.4567499986733,
+      "bytes": 87040.0,
+      "timing_breakdown": {
+        "sdk_preprocessing_ms": 231.51462500391062,
+        "network_ttfb_ms": 17.4663329962641,
+        "chunk_processing_ms": 1173.4736250000424
+      }
+    },
+    {
+      "ttfb_ms": 230.48695800389396,
+      "ttlb_ms": 1513.829291005095,
+      "bytes": 94720.0,
+      "timing_breakdown": {
+        "sdk_preprocessing_ms": 230.26166600175202,
+        "network_ttfb_ms": 0.22616700152866542,
+        "chunk_processing_ms": 1283.3357920026174
+      }
+    },
+    {
+      "ttfb_ms": 234.99666600400815,
+      "ttlb_ms": 1463.20283300156,
+      "bytes": 89600.0,
+      "timing_breakdown": {
+        "sdk_preprocessing_ms": 234.7765000013169,
+        "network_ttfb_ms": 0.22091600112617016,
+        "chunk_processing_ms": 1228.2001669955207
+      }
+    },
+    {
+      "ttfb_ms": 256.284458002483,
+      "ttlb_ms": 1333.3900829966296,
+      "bytes": 78080.0,
+      "timing_breakdown": {
+        "sdk_preprocessing_ms": 256.0502499982249,
+        "network_ttfb_ms": 0.23491700267186388,
+        "chunk_processing_ms": 1077.1039579994977
+      }
+    },
+    {
+      "ttfb_ms": 228.8216660017497,
+      "ttlb_ms": 1702.1900410036324,
+      "bytes": 106240.0,
+      "timing_breakdown": {
+        "sdk_preprocessing_ms": 228.58500000438653,
+        "network_ttfb_ms": 0.2374159957980737,
+        "chunk_processing_ms": 1473.365666999598
+      }
+    },
+    {
+      "ttfb_ms": 218.61912500025937,
+      "ttlb_ms": 1324.7369160017115,
+      "bytes": 80640.0,
+      "timing_breakdown": {
+        "sdk_preprocessing_ms": 218.56566600035876,
+        "network_ttfb_ms": 0.05370900180423632,
+        "chunk_processing_ms": 1106.1168750020443
+      }
+    },
+    {
+      "ttfb_ms": 221.18837499874644,
+      "ttlb_ms": 2059.2058330003056,
+      "bytes": 131840.0,
+      "timing_breakdown": {
+        "sdk_preprocessing_ms": 220.95058299601078,
+        "network_ttfb_ms": 0.2385420011705719,
+        "chunk_processing_ms": 1838.0153329999303
+      }
+    },
+    {
+      "ttfb_ms": 221.85662500123726,
+      "ttlb_ms": 1469.1080420016078,
+      "bytes": 89600.0,
+      "timing_breakdown": {
+        "sdk_preprocessing_ms": 221.71337500185473,
+        "network_ttfb_ms": 0.1462500003981404,
+        "chunk_processing_ms": 1247.2458339980221
+      }
+    }
+  ],
+  "summary": {
+    "ttfb": {
+      "min": 214.3633339946973,
+      "max": 323.3738330018241,
+      "avg": 235.0563266396057,
+      "median": 230.48695800389396
+    },
+    "ttlb": {
+      "min": 1227.1055419987533,
+      "max": 2121.002292005869,
+      "avg": 1588.5510467202403,
+      "median": 1550.58700000518
+    }
+  },
+  "timing_breakdown_summary": {
+    "sdk_preprocessing_ms": {
+      "avg": 234.1977033187868,
+      "median": 230.26166600175202,
+      "min": 214.2944999941392,
+      "max": 323.10541700280737
+    },
+    "network_ttfb_ms": {
+      "avg": 0.8596633601700887,
+      "median": 0.22091600112617016,
+      "min": 0.05095799861010164,
+      "max": 17.4663329962641
+    },
+    "chunk_processing_ms": {
+      "avg": 1353.4912683206494,
+      "median": 1325.7355419991654,
+      "min": 1009.3558750013472,
+      "max": 1838.0153329999303
+    }
+  }
+}

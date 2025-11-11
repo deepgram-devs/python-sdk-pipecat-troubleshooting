@@ -1,0 +1,39 @@
+Deepgram SDK v4.7 benchmark (telemetry disabled)
+Telemetry: disabled
+Iterations: 25
+Client initialization (one-time): 0.1 ms
+
+[01] TTFB 323.4 ms  TTLB 2121.0 ms  bytes 129280
+[02] TTFB 242.9 ms  TTLB 1432.4 ms  bytes 87040
+[03] TTFB 218.0 ms  TTLB 1798.3 ms  bytes 115200
+[04] TTFB 240.5 ms  TTLB 1550.6 ms  bytes 94720
+[05] TTFB 222.1 ms  TTLB 1656.4 ms  bytes 103680
+[06] TTFB 237.0 ms  TTLB 1647.8 ms  bytes 102400
+[07] TTFB 214.4 ms  TTLB 1532.5 ms  bytes 96000
+[08] TTFB 243.9 ms  TTLB 1757.0 ms  bytes 110080
+[09] TTFB 226.3 ms  TTLB 1351.1 ms  bytes 83200
+[10] TTFB 236.5 ms  TTLB 1784.6 ms  bytes 113920
+[11] TTFB 256.8 ms  TTLB 1611.2 ms  bytes 99840
+[12] TTFB 231.1 ms  TTLB 1572.0 ms  bytes 98560
+[13] TTFB 217.7 ms  TTLB 1227.1 ms  bytes 74240
+[14] TTFB 226.4 ms  TTLB 1867.8 ms  bytes 119040
+[15] TTFB 235.9 ms  TTLB 1597.2 ms  bytes 101120
+[16] TTFB 219.9 ms  TTLB 1545.7 ms  bytes 97280
+[17] TTFB 222.2 ms  TTLB 1373.2 ms  bytes 84480
+[18] TTFB 249.0 ms  TTLB 1422.5 ms  bytes 87040
+[19] TTFB 230.5 ms  TTLB 1513.8 ms  bytes 94720
+[20] TTFB 235.0 ms  TTLB 1463.2 ms  bytes 89600
+[21] TTFB 256.3 ms  TTLB 1333.4 ms  bytes 78080
+[22] TTFB 228.8 ms  TTLB 1702.2 ms  bytes 106240
+[23] TTFB 218.6 ms  TTLB 1324.7 ms  bytes 80640
+[24] TTFB 221.2 ms  TTLB 2059.2 ms  bytes 131840
+[25] TTFB 221.9 ms  TTLB 1469.1 ms  bytes 89600
+
+Summary (Deepgram SDK v4.7, telemetry off)
+TTFB  avg 235.1 ms  median 230.5 ms  min 214.4  max 323.4
+TTLB  avg 1588.6 ms  median 1550.6 ms  min 1227.1  max 2121.0
+
+Per-Request Timing Breakdown (averages):
+  Sdk Preprocessing: 234.2 ms
+  Network Ttfb: 0.9 ms
+  Chunk Processing: 1353.5 ms

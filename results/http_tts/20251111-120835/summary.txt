@@ -1,0 +1,38 @@
+HTTP TTS baseline benchmark
+Iterations: 25
+Session initialization (one-time): 0.0 ms
+
+[01] TTFB 291.8 ms  TTLB 1879.0 ms  bytes 115200
+[02] TTFB 145.4 ms  TTLB 978.2 ms  bytes 61440
+[03] TTFB 144.3 ms  TTLB 1639.0 ms  bytes 107520
+[04] TTFB 147.2 ms  TTLB 945.0 ms  bytes 58880
+[05] TTFB 143.5 ms  TTLB 1769.9 ms  bytes 117760
+[06] TTFB 127.6 ms  TTLB 1049.6 ms  bytes 67840
+[07] TTFB 129.5 ms  TTLB 1490.0 ms  bytes 96000
+[08] TTFB 141.7 ms  TTLB 1345.5 ms  bytes 85760
+[09] TTFB 137.5 ms  TTLB 1384.0 ms  bytes 90880
+[10] TTFB 144.9 ms  TTLB 958.5 ms  bytes 60160
+[11] TTFB 145.5 ms  TTLB 1276.1 ms  bytes 81920
+[12] TTFB 133.4 ms  TTLB 899.1 ms  bytes 56320
+[13] TTFB 138.8 ms  TTLB 1413.9 ms  bytes 92160
+[14] TTFB 156.6 ms  TTLB 1225.5 ms  bytes 79360
+[15] TTFB 159.1 ms  TTLB 1538.1 ms  bytes 98560
+[16] TTFB 128.5 ms  TTLB 1586.9 ms  bytes 103680
+[17] TTFB 152.8 ms  TTLB 1666.5 ms  bytes 111360
+[18] TTFB 128.2 ms  TTLB 1195.0 ms  bytes 78080
+[19] TTFB 129.2 ms  TTLB 1523.8 ms  bytes 101120
+[20] TTFB 130.1 ms  TTLB 1421.9 ms  bytes 93440
+[21] TTFB 152.3 ms  TTLB 1708.1 ms  bytes 112640
+[22] TTFB 158.4 ms  TTLB 1395.2 ms  bytes 90880
+[23] TTFB 141.9 ms  TTLB 999.3 ms  bytes 60160
+[24] TTFB 137.8 ms  TTLB 1569.7 ms  bytes 103680
+[25] TTFB 141.1 ms  TTLB 906.0 ms  bytes 56320
+
+Summary (HTTP baseline)
+TTFB  avg 147.5 ms  median 141.9 ms  min 127.6  max 291.8
+TTLB  avg 1350.6 ms  median 1395.2 ms  min 899.1  max 1879.0
+
+Per-Request Timing Breakdown (averages):
+  Request Send: 146.8 ms
+  Network Ttfb: 0.7 ms
+  Chunk Processing: 1203.0 ms
