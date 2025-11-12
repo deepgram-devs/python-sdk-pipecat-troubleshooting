@@ -1,0 +1,37 @@
+Deepgram SDK v5 sync benchmark (Run 3 - Granular Timing)
+Telemetry: enabled
+Iterations: 25
+Client initialization (one-time): 43.3 ms
+
+[01] TTFB 296.5 ms  TTLB 1829.1 ms  bytes 111360
+[02] TTFB 135.2 ms  TTLB 1763.3 ms  bytes 120320
+[03] TTFB 134.3 ms  TTLB 1497.5 ms  bytes 98560
+[04] TTFB 126.1 ms  TTLB 1480.5 ms  bytes 98560
+[05] TTFB 125.9 ms  TTLB 1639.2 ms  bytes 107520
+[06] TTFB 119.9 ms  TTLB 1576.7 ms  bytes 103680
+[07] TTFB 128.8 ms  TTLB 1652.1 ms  bytes 111360
+[08] TTFB 119.9 ms  TTLB 1827.4 ms  bytes 125440
+[09] TTFB 116.9 ms  TTLB 1957.0 ms  bytes 133120
+[10] TTFB 126.0 ms  TTLB 1752.0 ms  bytes 116480
+[11] TTFB 120.4 ms  TTLB 1690.3 ms  bytes 115200
+[12] TTFB 114.7 ms  TTLB 1402.4 ms  bytes 93440
+[13] TTFB 126.3 ms  TTLB 1772.4 ms  bytes 120320
+[14] TTFB 126.8 ms  TTLB 1421.3 ms  bytes 93440
+[15] TTFB 126.3 ms  TTLB 1403.2 ms  bytes 93440
+[16] TTFB 124.5 ms  TTLB 1846.0 ms  bytes 122880
+[17] TTFB 120.4 ms  TTLB 1352.3 ms  bytes 90880
+[18] TTFB 132.2 ms  TTLB 1634.3 ms  bytes 107520
+[19] TTFB 121.4 ms  TTLB 1406.9 ms  bytes 93440
+[20] TTFB 131.8 ms  TTLB 1441.8 ms  bytes 96000
+[21] TTFB 123.2 ms  TTLB 1257.9 ms  bytes 80640
+[22] TTFB 126.4 ms  TTLB 1775.8 ms  bytes 119040
+[23] TTFB 127.3 ms  TTLB 1379.9 ms  bytes 90880
+[24] TTFB 127.5 ms  TTLB 1776.4 ms  bytes 119040
+[25] TTFB 127.1 ms  TTLB 1355.3 ms  bytes 85760
+
+Per-Request Timing Breakdown (chronological):
+  Time Until Request: avg 0.3 ms  median 0.0 ms  min 0.0  max 7.6
+  Time Until Response: avg 132.2 ms  median 126.3 ms  min 114.7  max 296.5
+  Ttfb: avg 132.2 ms  median 126.3 ms  min 114.7  max 296.5
+  Ttlb: avg 1595.6 ms  median 1634.3 ms  min 1257.9  max 1957.0
+  Time Until Results: avg 1595.6 ms  median 1634.3 ms  min 1257.9  max 1957.0

@@ -1,0 +1,37 @@
+HTTP TTS baseline benchmark (Run 3 - Granular Timing)
+Telemetry: N/A
+Iterations: 25
+Session initialization (one-time): 0.0 ms
+
+[01] TTFB 249.4 ms  TTLB 1647.3 ms  bytes 102400
+[02] TTFB 114.1 ms  TTLB 1142.1 ms  bytes 75520
+[03] TTFB 117.8 ms  TTLB 881.5 ms  bytes 56320
+[04] TTFB 117.0 ms  TTLB 1041.7 ms  bytes 65280
+[05] TTFB 118.8 ms  TTLB 1463.3 ms  bytes 94720
+[06] TTFB 111.8 ms  TTLB 1700.0 ms  bytes 112640
+[07] TTFB 116.6 ms  TTLB 1268.2 ms  bytes 84480
+[08] TTFB 136.0 ms  TTLB 1416.5 ms  bytes 93440
+[09] TTFB 124.1 ms  TTLB 1187.2 ms  bytes 78080
+[10] TTFB 123.1 ms  TTLB 1294.2 ms  bytes 85760
+[11] TTFB 115.4 ms  TTLB 1263.8 ms  bytes 84480
+[12] TTFB 106.4 ms  TTLB 1365.9 ms  bytes 90880
+[13] TTFB 107.1 ms  TTLB 913.9 ms  bytes 60160
+[14] TTFB 107.8 ms  TTLB 1165.3 ms  bytes 78080
+[15] TTFB 122.4 ms  TTLB 1076.7 ms  bytes 70400
+[16] TTFB 124.8 ms  TTLB 1871.1 ms  bytes 126720
+[17] TTFB 108.7 ms  TTLB 1192.0 ms  bytes 76800
+[18] TTFB 128.2 ms  TTLB 1340.6 ms  bytes 88320
+[19] TTFB 120.6 ms  TTLB 1790.2 ms  bytes 120320
+[20] TTFB 116.4 ms  TTLB 1595.8 ms  bytes 107520
+[21] TTFB 118.4 ms  TTLB 1631.9 ms  bytes 110080
+[22] TTFB 127.5 ms  TTLB 1222.8 ms  bytes 80640
+[23] TTFB 116.0 ms  TTLB 1404.6 ms  bytes 94720
+[24] TTFB 111.2 ms  TTLB 1190.9 ms  bytes 78080
+[25] TTFB 106.9 ms  TTLB 1503.3 ms  bytes 101120
+
+Per-Request Timing Breakdown (chronological):
+  Time Until Request: avg 0.0 ms  median 0.0 ms  min 0.0  max 0.0
+  Time Until Response: avg 122.6 ms  median 117.0 ms  min 106.4  max 249.3
+  Ttfb: avg 122.7 ms  median 117.0 ms  min 106.4  max 249.4
+  Ttlb: avg 1342.8 ms  median 1294.2 ms  min 881.5  max 1871.1
+  Time Until Results: avg 1342.9 ms  median 1294.2 ms  min 881.5  max 1871.1

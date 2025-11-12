@@ -1,6 +1,6 @@
 # python-sdk-pipecat-troubleshooting
 
-To troubleshoot v5Python SDK TTS performance issues with Pipecat.
+To troubleshoot Python SDK TTS performance issues with Pipecat.
 
 
 ## Overview
@@ -53,15 +53,15 @@ To run tests:
 
 1. **Run the v4 + HTTP benchmarks**
    - SDK v4 streaming clone of Pipecat’s usage:
-     `pipenv run python tests/sdk_v4_tts_benchmark.py --iterations 10`
+     `pipenv run python tests/run-1/sdk_v4_tts_benchmark.py --iterations 10`
    - Direct HTTP baseline (Pipecat-style `aiohttp` client):
-     `pipenv run python tests/http_tts_benchmark.py --iterations 10`
+     `pipenv run python tests/run-1/http_tts_benchmark.py --iterations 10`
 
 2. **Run the v5 benchmarks**
    - Streaming SDK (async generator using v5 client):
-     `PIPENV_PIPFILE=Pipfile.v5 pipenv run python tests/sdk_v5_stream_tts_benchmark.py --iterations 10`
+     `PIPENV_PIPFILE=Pipfile.v5 pipenv run python tests/run-1/sdk_v5_stream_tts_benchmark.py --iterations 10`
    - Non-streaming/REST SDK path:
-     `PIPENV_PIPFILE=Pipfile.v5 pipenv run python tests/sdk_v5_rest_tts_benchmark.py --iterations 10`
+     `PIPENV_PIPFILE=Pipfile.v5 pipenv run python tests/run-1/sdk_v5_rest_tts_benchmark.py --iterations 10`
 
 
 ### TEST RUN 2
@@ -91,16 +91,40 @@ To run tests:
 
 1. **HTTP Baseline:**
 - Deepgram TTS via direct HTTP requests (no SDK)
-  `pipenv run python tests/http_tts_benchmark.py --iterations 25`
+  `pipenv run python tests/run-2/http_tts_benchmark.py --iterations 25`
 
 2. **v4.7 SDK Tests:**
 - Deepgram SDK v4.7 TTS Benchmark with Telemetry enabled
-  `pipenv run python tests/sdk_v4_tts_benchmark.py --iterations 25`
+  `pipenv run python tests/run-2/sdk_v4_tts_benchmark.py --iterations 25`
 - Deepgram SDK v4.7 TTS Benchmark with Telemetry Disabled
-  `pipenv run python tests/sdk_v4_tts_telemetry_off_benchmark.py --iterations 25`
+  `pipenv run python tests/run-2/sdk_v4_tts_telemetry_off_benchmark.py --iterations 25`
 
 3. **v5 SDK Tests**
 - Deepgram SDK v5 Synchronous generate() TTS Benchmark with Telemetry enabled
-  `PIPENV_PIPFILE=Pipfile.v5 pipenv run python tests/sdk_v5_sync_tts_benchmark.py --iterations 25`
+  `PIPENV_PIPFILE=Pipfile.v5 pipenv run python tests/run-2/sdk_v5_sync_tts_benchmark.py --iterations 25`
 - Deepgram SDK v5 Synchronous generate() TTS Benchmark with Telemetry disabled
-  `PIPENV_PIPFILE=Pipfile.v5 pipenv run python tests/sdk_v5_sync_tts_telemetry_off_benchmark.py --iterations 25`
+  `PIPENV_PIPFILE=Pipfile.v5 pipenv run python tests/run-2/sdk_v5_sync_tts_telemetry_off_benchmark.py --iterations 25`
+
+
+  ### Test Run 3
+
+Test Run 3 focuses on providing the following metrics for 25 test iterations. In this run we skipped v4.7 SDK tests as
+we got what we needed from the previous test runs.
+
+1. SDK/Session Initialization (one-time) - Before iterations
+2. Time Until Request - When HTTP request is sent
+3. Time Until Response - When response headers received
+4. TTFB - First data chunk arrives
+5. Time Until Response Results - Data processed and ready for use
+6. TTLB - Last data chunk received
+
+
+# Test 1: HTTP Baseline
+- Deepgram TTS via direct HTTP requests (no SDK)
+`pipenv run python tests/run-3/http_tts_benchmark.py --iterations 25`
+- Deepgram SDK v5 Synchronous generate() TTS Benchmark with Telemetry enabled
+# Test 2: V5 SDK (Telemetry Enabled)
+`PIPENV_PIPFILE=Pipfile.v5 pipenv run python tests/run-3/sdk_v5_sync_tts_benchmark.py --iterations 25`
+- Deepgram SDK v5 Synchronous generate() TTS Benchmark with Telemetry disabled
+# Test 3: V5 SDK (Telemetry Disabled)
+`PIPENV_PIPFILE=Pipfile.v5 pipenv run python tests/run-3/sdk_v5_sync_tts_telemetry_off_benchmark.py --iterations 25`
