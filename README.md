@@ -123,7 +123,7 @@ To run tests:
 
 1. **Test 1: HTTP Baseline**
    - Deepgram TTS via direct HTTP requests (no SDK)
-    `pipenv run python tests/run-3/http_tts_benchmark.py --iterations 25`
+   `pipenv run python tests/run-3/http_tts_benchmark.py --iterations 25`
 
 2. **Test 2: V5 SDK (Telemetry Enabled)**
    - Deepgram SDK v5 Synchronous generate() TTS Benchmark with Telemetry enabled
