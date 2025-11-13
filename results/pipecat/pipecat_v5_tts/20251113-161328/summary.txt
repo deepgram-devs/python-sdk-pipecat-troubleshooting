@@ -1,4 +1,4 @@
-PipeCat + Deepgram SDK v5.3 TTS Benchmark
+PipeCat + Deepgram SDK v5.3 TTS Benchmark with PipeCat Fix
 SDK Version: 5.3.0
 Iterations: 25
 Service initialization (one-time): 57.1 ms
