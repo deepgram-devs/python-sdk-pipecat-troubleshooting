@@ -1,0 +1,324 @@
+{
+  "benchmark": "pipecat_v4_tts",
+  "generated_at": "20251113-132120",
+  "iterations": 25,
+  "service_init_ms": 0.17337498138658702,
+  "sdk_version": "4.7.0",
+  "parameters": {
+    "text": "Testing Deepgram SDK streaming TTS.",
+    "voice": "aura-2-andromeda-en",
+    "sample_rate": 16000,
+    "encoding": "linear16"
+  },
+  "runs": [
+    {
+      "ttfb_ms": 206.3790000102017,
+      "ttlb_ms": 206.6061249934137,
+      "bytes": 193.0,
+      "frame_count": 1,
+      "timing_breakdown": {
+        "time_until_request_ms": 0.003082997864112258,
+        "time_until_response_ms": 206.25654101604596,
+        "time_until_results_ms": 206.60658300039358
+      }
+    },
+    {
+      "ttfb_ms": 136.30212499992922,
+      "ttlb_ms": 137.17974998871796,
+      "bytes": 193.0,
+      "frame_count": 1,
+      "timing_breakdown": {
+        "time_until_request_ms": 0.005458015948534012,
+        "time_until_response_ms": 135.7639170018956,
+        "time_until_results_ms": 137.18108300236054
+      }
+    },
+    {
+      "ttfb_ms": 137.75670898030512,
+      "ttlb_ms": 137.94158399105072,
+      "bytes": 193.0,
+      "frame_count": 1,
+      "timing_breakdown": {
+        "time_until_request_ms": 0.01666697789914906,
+        "time_until_response_ms": 137.67124997684732,
+        "time_until_results_ms": 137.94174999929965
+      }
+    },
+    {
+      "ttfb_ms": 135.53466700250283,
+      "ttlb_ms": 135.7393329963088,
+      "bytes": 193.0,
+      "frame_count": 1,
+      "timing_breakdown": {
+        "time_until_request_ms": 0.006374990334734321,
+        "time_until_response_ms": 135.43345799553208,
+        "time_until_results_ms": 135.73958299821243
+      }
+    },
+    {
+      "ttfb_ms": 138.77325001521967,
+      "ttlb_ms": 139.4817079999484,
+      "bytes": 193.0,
+      "frame_count": 1,
+      "timing_breakdown": {
+        "time_until_request_ms": 0.006165995728224516,
+        "time_until_response_ms": 138.41470802435651,
+        "time_until_results_ms": 139.4825830066111
+      }
+    },
+    {
+      "ttfb_ms": 138.61333299428225,
+      "ttlb_ms": 139.09258297644556,
+      "bytes": 193.0,
+      "frame_count": 1,
+      "timing_breakdown": {
+        "time_until_request_ms": 0.020332983694970608,
+        "time_until_response_ms": 138.38124999892898,
+        "time_until_results_ms": 139.09324997803196
+      }
+    },
+    {
+      "ttfb_ms": 147.55616598995402,
+      "ttlb_ms": 148.0880829913076,
+      "bytes": 193.0,
+      "frame_count": 1,
+      "timing_breakdown": {
+        "time_until_request_ms": 0.01291598891839385,
+        "time_until_response_ms": 147.22512499429286,
+        "time_until_results_ms": 148.08870799606666
+      }
+    },
+    {
+      "ttfb_ms": 141.08637502067722,
+      "ttlb_ms": 141.5912080265116,
+      "bytes": 193.0,
+      "frame_count": 1,
+      "timing_breakdown": {
+        "time_until_request_ms": 0.014833000022917986,
+        "time_until_response_ms": 140.822790999664,
+        "time_until_results_ms": 141.59154100343585
+      }
+    },
+    {
+      "ttfb_ms": 142.72608398459852,
+      "ttlb_ms": 142.92187499813735,
+      "bytes": 193.0,
+      "frame_count": 1,
+      "timing_breakdown": {
+        "time_until_request_ms": 0.011999974958598614,
+        "time_until_response_ms": 142.64016700326465,
+        "time_until_results_ms": 142.92212500004098
+      }
+    },
+    {
+      "ttfb_ms": 133.51391698233783,
+      "ttlb_ms": 133.7461249786429,
+      "bytes": 193.0,
+      "frame_count": 1,
+      "timing_breakdown": {
+        "time_until_request_ms": 0.004792003892362118,
+        "time_until_response_ms": 133.39429200277664,
+        "time_until_results_ms": 133.74629197642207
+      }
+    },
+    {
+      "ttfb_ms": 139.05837497441098,
+      "ttlb_ms": 139.57670799572952,
+      "bytes": 193.0,
+      "frame_count": 1,
+      "timing_breakdown": {
+        "time_until_request_ms": 0.005707988748326898,
+        "time_until_response_ms": 138.81004098220728,
+        "time_until_results_ms": 139.5769999944605
+      }
+    },
+    {
+      "ttfb_ms": 188.2890000124462,
+      "ttlb_ms": 188.8409170205705,
+      "bytes": 193.0,
+      "frame_count": 1,
+      "timing_breakdown": {
+        "time_until_request_ms": 0.012333010090515018,
+        "time_until_response_ms": 188.00116700003855,
+        "time_until_results_ms": 188.84154202532955
+      }
+    },
+    {
+      "ttfb_ms": 140.3303330007475,
+      "ttlb_ms": 140.96700001391582,
+      "bytes": 193.0,
+      "frame_count": 1,
+      "timing_breakdown": {
+        "time_until_request_ms": 0.01937500201165676,
+        "time_until_response_ms": 139.98062501195818,
+        "time_until_results_ms": 140.96779201645404
+      }
+    },
+    {
+      "ttfb_ms": 135.08362500579096,
+      "ttlb_ms": 135.91524999355897,
+      "bytes": 193.0,
+      "frame_count": 1,
+      "timing_breakdown": {
+        "time_until_request_ms": 0.019416998839005828,
+        "time_until_response_ms": 134.73487499868497,
+        "time_until_results_ms": 135.9275830036495
+      }
+    },
+    {
+      "ttfb_ms": 139.1090420074761,
+      "ttlb_ms": 139.2657499818597,
+      "bytes": 193.0,
+      "frame_count": 1,
+      "timing_breakdown": {
+        "time_until_request_ms": 0.030291994335129857,
+        "time_until_response_ms": 139.03979200404137,
+        "time_until_results_ms": 139.26595798693597
+      }
+    },
+    {
+      "ttfb_ms": 129.7093750035856,
+      "ttlb_ms": 129.88374999258667,
+      "bytes": 193.0,
+      "frame_count": 1,
+      "timing_breakdown": {
+        "time_until_request_ms": 0.006374990334734321,
+        "time_until_response_ms": 129.61324999923818,
+        "time_until_results_ms": 129.8839999944903
+      }
+    },
+    {
+      "ttfb_ms": 138.39854201069102,
+      "ttlb_ms": 139.14704200578853,
+      "bytes": 193.0,
+      "frame_count": 1,
+      "timing_breakdown": {
+        "time_until_request_ms": 0.007375027053058147,
+        "time_until_response_ms": 138.0755840218626,
+        "time_until_results_ms": 139.14908401784487
+      }
+    },
+    {
+      "ttfb_ms": 148.38516700547189,
+      "ttlb_ms": 148.5954590025358,
+      "bytes": 193.0,
+      "frame_count": 1,
+      "timing_breakdown": {
+        "time_until_request_ms": 0.01633400097489357,
+        "time_until_response_ms": 148.30829200218432,
+        "time_until_results_ms": 148.5957090044394
+      }
+    },
+    {
+      "ttfb_ms": 131.09954199171625,
+      "ttlb_ms": 131.34683400858194,
+      "bytes": 193.0,
+      "frame_count": 1,
+      "timing_breakdown": {
+        "time_until_request_ms": 0.00504200579598546,
+        "time_until_response_ms": 130.98070901469328,
+        "time_until_results_ms": 131.34716701461002
+      }
+    },
+    {
+      "ttfb_ms": 145.33700002357364,
+      "ttlb_ms": 145.89016602258198,
+      "bytes": 193.0,
+      "frame_count": 1,
+      "timing_breakdown": {
+        "time_until_request_ms": 0.0077500008046627045,
+        "time_until_response_ms": 145.0322500022594,
+        "time_until_results_ms": 145.89104100014083
+      }
+    },
+    {
+      "ttfb_ms": 138.1606670038309,
+      "ttlb_ms": 138.32958400598727,
+      "bytes": 193.0,
+      "frame_count": 1,
+      "timing_breakdown": {
+        "time_until_request_ms": 0.012208998668938875,
+        "time_until_response_ms": 138.0747499933932,
+        "time_until_results_ms": 138.3297500142362
+      }
+    },
+    {
+      "ttfb_ms": 128.65137500921264,
+      "ttlb_ms": 128.8230840000324,
+      "bytes": 193.0,
+      "frame_count": 1,
+      "timing_breakdown": {
+        "time_until_request_ms": 0.0048340007197111845,
+        "time_until_response_ms": 128.5724590125028,
+        "time_until_results_ms": 128.82333400193602
+      }
+    },
+    {
+      "ttfb_ms": 141.84941700659692,
+      "ttlb_ms": 142.5077500171028,
+      "bytes": 193.0,
+      "frame_count": 1,
+      "timing_breakdown": {
+        "time_until_request_ms": 0.006417016265913844,
+        "time_until_response_ms": 141.5120419987943,
+        "time_until_results_ms": 142.50833401456475
+      }
+    },
+    {
+      "ttfb_ms": 137.35074998112395,
+      "ttlb_ms": 137.95208299416117,
+      "bytes": 193.0,
+      "frame_count": 1,
+      "timing_breakdown": {
+        "time_until_request_ms": 0.02604199107736349,
+        "time_until_response_ms": 137.0552499720361,
+        "time_until_results_ms": 137.95279199257493
+      }
+    },
+    {
+      "ttfb_ms": 158.79491699161008,
+      "ttlb_ms": 159.42116698715836,
+      "bytes": 193.0,
+      "frame_count": 1,
+      "timing_breakdown": {
+        "time_until_request_ms": 0.01979200169444084,
+        "time_until_response_ms": 158.47733299597166,
+        "time_until_results_ms": 159.42220800206997
+      }
+    }
+  ],
+  "summary": {
+    "ttfb": {
+      "min": 128.65137500921264,
+      "max": 206.3790000102017,
+      "avg": 143.91395012033172,
+      "median": 138.77325001521967
+    },
+    "ttlb": {
+      "min": 128.8230840000324,
+      "max": 206.6061249934137,
+      "avg": 144.35403671930544,
+      "median": 139.2657499818597
+    }
+  },
+  "timing_breakdown_summary": {
+    "time_until_request_ms": {
+      "avg": 0.012076718267053366,
+      "median": 0.011999974958598614,
+      "min": 0.003082997864112258,
+      "max": 0.030291994335129857
+    },
+    "time_until_response_ms": {
+      "avg": 143.69087672093883,
+      "median": 138.41470802435651,
+      "min": 128.5724590125028,
+      "max": 206.25654101604596
+    },
+    "time_until_results_ms": {
+      "avg": 144.35507168178447,
+      "median": 139.26595798693597,
+      "min": 128.82333400193602,
+      "max": 206.60658300039358
+    }
+  }
+}

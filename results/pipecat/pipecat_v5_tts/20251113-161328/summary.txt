@@ -1,0 +1,37 @@
+PipeCat + Deepgram SDK v5.3 TTS Benchmark
+SDK Version: 5.3.0
+Iterations: 25
+Service initialization (one-time): 57.1 ms
+
+[01] TTFB 367.4 ms  TTLB 4210.9 ms  bytes 273920
+[02] TTFB 138.4 ms  TTLB 3776.1 ms  bytes 261120
+[03] TTFB 126.5 ms  TTLB 3298.1 ms  bytes 227840
+[04] TTFB 138.7 ms  TTLB 3376.9 ms  bytes 231680
+[05] TTFB 132.5 ms  TTLB 3382.9 ms  bytes 232960
+[06] TTFB 136.0 ms  TTLB 3965.1 ms  bytes 279040
+[07] TTFB 130.3 ms  TTLB 3939.5 ms  bytes 272640
+[08] TTFB 131.7 ms  TTLB 3321.2 ms  bytes 230400
+[09] TTFB 116.8 ms  TTLB 3501.9 ms  bytes 241920
+[10] TTFB 128.6 ms  TTLB 3624.8 ms  bytes 249600
+[11] TTFB 135.7 ms  TTLB 3808.0 ms  bytes 264960
+[12] TTFB 120.0 ms  TTLB 3713.4 ms  bytes 256000
+[13] TTFB 145.3 ms  TTLB 3730.9 ms  bytes 258560
+[14] TTFB 126.3 ms  TTLB 3848.9 ms  bytes 266240
+[15] TTFB 137.1 ms  TTLB 3637.0 ms  bytes 252160
+[16] TTFB 125.4 ms  TTLB 3933.4 ms  bytes 270080
+[17] TTFB 138.9 ms  TTLB 3854.8 ms  bytes 264960
+[18] TTFB 144.9 ms  TTLB 4682.3 ms  bytes 328960
+[19] TTFB 117.8 ms  TTLB 4384.7 ms  bytes 307200
+[20] TTFB 116.5 ms  TTLB 3447.2 ms  bytes 239360
+[21] TTFB 133.6 ms  TTLB 3829.6 ms  bytes 264960
+[22] TTFB 133.5 ms  TTLB 3727.3 ms  bytes 258560
+[23] TTFB 134.3 ms  TTLB 4283.0 ms  bytes 298240
+[24] TTFB 125.8 ms  TTLB 3541.6 ms  bytes 247040
+[25] TTFB 115.0 ms  TTLB 3522.3 ms  bytes 247040
+
+Per-Request Timing Breakdown (chronological):
+  Time Until Request: avg 0.0 ms  median 0.0 ms  min 0.0  max 0.1
+  Time Until Response: avg 0.0 ms  median 0.0 ms  min 0.0  max 0.1
+  Ttfb: avg 139.9 ms  median 132.5 ms  min 115.0  max 367.4
+  Ttlb: avg 3773.7 ms  median 3730.9 ms  min 3298.1  max 4682.3
+  Time Until Results: avg 3773.7 ms  median 3730.9 ms  min 3298.1  max 4682.3

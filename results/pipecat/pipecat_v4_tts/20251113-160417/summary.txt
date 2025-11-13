@@ -1,0 +1,37 @@
+PipeCat + Deepgram SDK v4.7 TTS Benchmark with PipeCat Fix
+SDK Version: 4.7.0
+Iterations: 25
+Service initialization (one-time): 0.2 ms
+
+[01] TTFB 428.7 ms  TTLB 4526.0 ms  bytes 293120  frames 229
+[02] TTFB 218.1 ms  TTLB 3828.5 ms  bytes 258560  frames 202
+[03] TTFB 243.8 ms  TTLB 3604.7 ms  bytes 241920  frames 189
+[04] TTFB 411.2 ms  TTLB 3656.2 ms  bytes 235520  frames 184
+[05] TTFB 276.2 ms  TTLB 3709.6 ms  bytes 250880  frames 196
+[06] TTFB 224.5 ms  TTLB 3595.0 ms  bytes 243200  frames 190
+[07] TTFB 237.7 ms  TTLB 3618.5 ms  bytes 245760  frames 192
+[08] TTFB 228.3 ms  TTLB 3955.6 ms  bytes 271360  frames 212
+[09] TTFB 213.2 ms  TTLB 3611.7 ms  bytes 248320  frames 194
+[10] TTFB 217.4 ms  TTLB 3913.3 ms  bytes 263680  frames 206
+[11] TTFB 219.9 ms  TTLB 4149.4 ms  bytes 281600  frames 220
+[12] TTFB 226.9 ms  TTLB 5110.0 ms  bytes 350720  frames 274
+[13] TTFB 220.1 ms  TTLB 3708.2 ms  bytes 248320  frames 194
+[14] TTFB 244.8 ms  TTLB 3810.2 ms  bytes 254720  frames 199
+[15] TTFB 232.1 ms  TTLB 3968.1 ms  bytes 266240  frames 208
+[16] TTFB 239.0 ms  TTLB 4968.1 ms  bytes 337920  frames 264
+[17] TTFB 217.4 ms  TTLB 4310.6 ms  bytes 293120  frames 229
+[18] TTFB 233.1 ms  TTLB 3741.0 ms  bytes 250880  frames 196
+[19] TTFB 231.4 ms  TTLB 4449.9 ms  bytes 302080  frames 236
+[20] TTFB 225.9 ms  TTLB 3994.5 ms  bytes 271360  frames 212
+[21] TTFB 200.5 ms  TTLB 3830.2 ms  bytes 259840  frames 203
+[22] TTFB 255.7 ms  TTLB 3602.9 ms  bytes 240640  frames 188
+[23] TTFB 233.9 ms  TTLB 4301.4 ms  bytes 291840  frames 228
+[24] TTFB 213.8 ms  TTLB 3733.4 ms  bytes 253440  frames 198
+[25] TTFB 215.8 ms  TTLB 3830.5 ms  bytes 261120  frames 204
+
+Per-Request Timing Breakdown (chronological):
+  Time Until Request: avg 0.0 ms  median 0.0 ms  min 0.0  max 0.0
+  Time Until Response: avg 244.2 ms  median 228.1 ms  min 200.4  max 428.5
+  Ttfb: avg 244.4 ms  median 228.3 ms  min 200.5  max 428.7
+  Ttlb: avg 3981.1 ms  median 3830.2 ms  min 3595.0  max 5110.0
+  Time Until Results: avg 3981.1 ms  median 3830.2 ms  min 3595.0  max 5110.0

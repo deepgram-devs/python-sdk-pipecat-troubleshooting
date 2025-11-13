@@ -4,13 +4,15 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-deepgram-sdk = "==5.3.0"
+deepgram-sdk = "==4.7.0"
 python-dotenv = "*"
 loguru = "*"
 aiohttp = "*"
-pipecat-ai = {git = "https://github.com/pipecat-ai/pipecat.git", ref = "main"}
+websockets = "*"
+pipecat-ai = {editable = true, path = "../pipecat"}
 
 [dev-packages]
 
 [requires]
 python_version = "3.12"
+
