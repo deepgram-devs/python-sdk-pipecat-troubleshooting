@@ -168,10 +168,14 @@ To run tests:
   `PIPENV_PIPFILE=Pipfile.v5 pipenv run python debug/test_pipecat_example_tts.py`
 
 
-4. **Test 4: Testing PipCat Fix with 4.7 SDK**
+4. **Test 4: Testing PipeCat Fix with 4.7 SDK**
 
   - PipCat + Fix + Deepgram SDK v4.7
   `PIPENV_PIPFILE=Pipfile.pipecat pipenv run python debug/test_pipecat_example_tts.py`
 
   - PipCat + Fix + Deepgram SDK v4.7 Benchmark
   `PIPENV_PIPFILE=Pipfile.pipecat pipenv run python tests/pipecat/pipecat_v4_tts_benchmark.py --iterations 25`
+
+5. **Test 5: Testing PipeCat Fix with 5.3 SDK**
+  - PipCat + Fix + Deepgram SDK (poc) v5.3 Benchmark
+  `PIPENV_PIPFILE=Pipfile.v5 pipenv run python tests/pipecat/pipecat_v5_tts_benchmark.py --iterations 25`
