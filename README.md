@@ -41,7 +41,9 @@ This directory contains the specific PipeCat examples [1](https://github.com/pip
      `PIPENV_PIPFILE=Pipfile.v5 pipenv install --skip-lock`
    - Confirm with `PIPENV_PIPFILE=Pipfile.v5 pipenv --venv`.
 
-----
+
+## Deepgram SDK Testing
+
 ### Test Run 1
 
 Test Run 1 focuses on providing the following metrics for 10 test iterations.
@@ -132,3 +134,44 @@ To run tests:
 3. **Test 3: V5 SDK (Telemetry Disabled)**
    - Deepgram SDK v5 Synchronous generate() TTS Benchmark with Telemetry disabled
    `PIPENV_PIPFILE=Pipfile.v5 pipenv run python tests/run-3/sdk_v5_sync_tts_telemetry_off_benchmark.py --iterations 25`
+
+## Pipe Cat Testing
+
+Testing Pipecat attempts to reproduce the issue reported by Daily. It also allows us to isolate the issue in
+Pipecat and determine a possible fix in their library
+
+To run tests:
+
+1. **Test 1: PipeCat + v4.7 SDK**
+    - PipeCat + Deepgram SDK v4.7 TTS Benchmark
+    `pipenv run python tests/pipecat/pipecat_v4_tts_benchmark.py --iterations 25`
+
+2. **Test 2: PipeCat + v5.3 SDK**
+    - PipeCat + Deepgram SDK v5.3 TTS Benchmark
+    `PIPENV_PIPFILE=Pipfile.v5 pipenv run python tests/pipecat/pipecat_v5_tts_benchmark.py --iterations 25`
+
+3. **Test 3: Debugging PipCat + v4.7 SDK**
+
+```json
+{"err_code":"INVALID_QUERY_PARAMETER","err_msg":"Failed to deserialize query parameters: invalid value: integer `0`, expected a nonzero u32","request_id":"3b7f3c04-3b3e-438a-93e4-30b178e0198a"}
+```
+  - PipeCat + Deepgram SDK v4.7 Error troubleshooting
+  `pipenv run python debug/debug_v4_error.py`
+
+  - PipeCat + Deepgram SDK v5.3 Error troubleshooting
+  `PIPENV_PIPFILE=Pipfile.v5 pipenv run python debug/debug_v5_error.py`
+
+  - PipeCat TTS Isolation test with SDK v4.7
+  `pipenv run python debug/test_pipecat_example_tts.py`
+
+  - PipeCat TTS Isolation test with SDK v5.3
+  `PIPENV_PIPFILE=Pipfile.v5 pipenv run python debug/test_pipecat_example_tts.py`
+
+
+4. **Test 4: Testing PipCat Fix with 4.7 SDK**
+
+  - PipCat + Fix + Deepgram SDK v4.7
+  `PIPENV_PIPFILE=Pipfile.pipecat pipenv run python debug/test_pipecat_example_tts.py`
+
+  - PipCat + Fix + Deepgram SDK v4.7 Benchmark
+  `PIPENV_PIPFILE=Pipfile.pipecat pipenv run python tests/pipecat/pipecat_v4_tts_benchmark.py --iterations 25`
