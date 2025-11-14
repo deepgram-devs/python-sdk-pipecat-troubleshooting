@@ -15,11 +15,6 @@ See [tests](./tests/)
 
 See [results](./results/)
 
-### Examples
-
-See [examples](./examples/)
-
-This directory contains the specific PipeCat examples [1](https://github.com/pipecat-ai/pipecat/blob/main/examples/foundational/07c-interruptible-deepgram-http.py) & [2](https://github.com/pipecat-ai/pipecat/blob/main/examples/foundational/07c-interruptible-deepgram.py) mentioned by the Daily user, but I was unable to get these to run, instead of spending too much time troubleshooting those, I focused on the tests mentioned above.
 
 ### Using this Repository
 
@@ -135,7 +130,7 @@ To run tests:
    - Deepgram SDK v5 Synchronous generate() TTS Benchmark with Telemetry disabled
    `PIPENV_PIPFILE=Pipfile.v5 pipenv run python tests/run-3/sdk_v5_sync_tts_telemetry_off_benchmark.py --iterations 25`
 
-## Pipe Cat Testing
+## Pipe Cat Isolation Testing
 
 Testing Pipecat attempts to reproduce the issue reported by Daily. It also allows us to isolate the issue in
 Pipecat and determine a possible fix in their library
@@ -168,7 +163,11 @@ To run tests:
   `PIPENV_PIPFILE=Pipfile.v5 pipenv run python debug/test_pipecat_example_tts.py`
 
 
-4. **Test 4: Testing PipeCat Fix with 4.7 SDK**
+4. **Test 4: Testing PipeCat Attempted Fix with 4.7 SDK**
+
+> Note this was the wrong approach see https://github.com/pipecat-ai/pipecat/pull/3054
+
+To run tests:
 
   - PipCat + Fix + Deepgram SDK v4.7
   `PIPENV_PIPFILE=Pipfile.pipecat pipenv run python debug/test_pipecat_example_tts.py`
@@ -179,3 +178,22 @@ To run tests:
 5. **Test 5: Testing PipeCat Fix with 5.3 SDK**
   - PipCat + Fix + Deepgram SDK (poc) v5.3 Benchmark
   `PIPENV_PIPFILE=Pipfile.v5 pipenv run python tests/pipecat/pipecat_v5_tts_benchmark.py --iterations 25`
+
+## PipeCat End to End Testing
+
+These tests rely on the benchmarks tests available in John Vajda'a forked version of [Pipecat found here](https://github.com/jpvajda/pipecat)
+To run these tests you'll need to run one of these `benchmark examples`.
+
+> To run tests you'll need to be in the forked repo!
+
+- https://github.com/jpvajda/pipecat/blob/main/examples/foundational/07c-interruptible-deepgram-http-benchmarked.py
+- https://github.com/jpvajda/pipecat/blob/main/examples/foundational/07c-interruptible-deepgram-benchmarked.py
+
+Tests:
+
+1. **Test 1: Http Bechmark test NO SDK**
+  - `uv run python 07c-interruptible-deepgram-http-benchmarked.py`
+  - disconnect the client to generate the metrics.
+
+2. **Test 2: Deepgram TTS Test w/ 4.7 SDK**
+ - `uv run python 07c-interruptible-deepgram-benchmarked.py`
