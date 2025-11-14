@@ -1,0 +1,33 @@
+PipeCat Live + Deepgram SDK v4.7 TTS Benchmark
+SDK Version: 4.7.0
+Iterations: 20
+Service initialization (one-time): 33.7 ms
+
+[01] TTFB 0.1 ms  TTLB 321.5 ms  bytes 36480  frames 19
+[02] TTFB 0.1 ms  TTLB 2235.9 ms  bytes 240000  frames 125
+[03] TTFB 0.1 ms  TTLB 2193.0 ms  bytes 236160  frames 123
+[04] TTFB 0.1 ms  TTLB 2086.5 ms  bytes 222720  frames 116
+[05] TTFB 0.0 ms  TTLB 2866.4 ms  bytes 305280  frames 159
+[06] TTFB 0.1 ms  TTLB 2381.2 ms  bytes 255360  frames 133
+[07] TTFB 0.0 ms  TTLB 4661.4 ms  bytes 495360  frames 258
+[08] TTFB 0.0 ms  TTLB 2173.2 ms  bytes 226560  frames 118
+[09] TTFB 0.0 ms  TTLB 2365.9 ms  bytes 255360  frames 133
+[10] TTFB 0.1 ms  TTLB 5755.0 ms  bytes 614400  frames 320
+[11] TTFB 0.1 ms  TTLB 1817.4 ms  bytes 193920  frames 101
+[12] TTFB 0.0 ms  TTLB 3992.1 ms  bytes 428160  frames 223
+[13] TTFB 0.0 ms  TTLB 5168.1 ms  bytes 552960  frames 288
+[14] TTFB 0.1 ms  TTLB 3483.9 ms  bytes 372480  frames 194
+[15] TTFB 0.2 ms  TTLB 2785.5 ms  bytes 297600  frames 155
+[16] TTFB 0.1 ms  TTLB 4432.6 ms  bytes 472320  frames 246
+[17] TTFB 0.0 ms  TTLB 2843.6 ms  bytes 305280  frames 159
+[18] TTFB 0.1 ms  TTLB 627.2 ms  bytes 69120  frames 36
+[19] TTFB 0.1 ms  TTLB 2081.9 ms  bytes 224640  frames 117
+[20] TTFB 0.1 ms  TTLB 561.2 ms  bytes 63360  frames 33
+
+Per-Request Timing Breakdown (chronological):
+  [1] LLM Network TTFB: avg 249.5 ms  median 226.3 ms  min 199.6  max 402.5
+  [2] TTS Network TTFB: avg 281.7 ms  median 222.2 ms  min 217.7  max 606.9
+  [3] Frame Processing Start: avg 0.0 ms  median 0.0 ms  min 0.0  max 0.0
+  [4] Frame First Audio: avg 0.1 ms  median 0.1 ms  min 0.0  max 0.2
+  [5] TTLB (All Audio): avg 2741.7 ms  median 2373.5 ms  min 321.5  max 5755.0
+  Time Until Results: avg 2741.7 ms  median 2373.5 ms  min 321.5  max 5755.0
